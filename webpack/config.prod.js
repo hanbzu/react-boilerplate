@@ -3,6 +3,10 @@
 var path = require('path')
 var webpack = require('webpack')
 
+// * devtool: source-map
+// It uses original source, not transformed code. What exactly does this mean?
+// https://webpack.github.io/docs/configuration.html#devtool
+
 // * Using output.publicPath:
 // When run in the browser, webpack needs to know where you'll host the generated bundle.
 // Thus it can request additional chunks (when using code splitting) or referenced files

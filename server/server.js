@@ -1,27 +1,49 @@
 'use strict'
 
 require('babel/register')
-
 const path = require('path')
 const express = require('express')
+const favicon = require('serve-favicon')
+
+const props = {
+  clientDistPath: path.join(__dirname, '..', 'client', 'dist'),
+  staticPath: path.join(__dirname, '..', 'client', 'static'),
+  port: process.env.PORT || 3000
+}
+
+global.__DEV__ = ('development' === process.env.NODE_ENV)
+global.__ON_SERVER__ = true
+global.__ON_CLIENT__ = false
 
 var app = express()
 
-// When asked for /static/** Express will look at ../client/dist/**
-app.use(
-  '/static',
-  express.static(path.join(__dirname, '..', 'client', 'dist'))
-)
+if (__DEV__) {
+  const webpack = require('webpack')
+	const webpackDevMiddleware = require('webpack-dev-middleware')
+	const webpackHotMiddleware = require('webpack-hot-middleware')
+	const webpackConfig = require('../webpack/config.dev')
+	const compiler = webpack(webpackConfig)
+	app.use(webpackDevMiddleware(compiler, {
+		noInfo: true,
+		publicPath: webpackConfig.output.publicPath
+	}))
+	app.use(webpackHotMiddleware(compiler))
+}
+else {
+  // When asked for /static/** Express will look at ../client/dist/**
+  app.use('/static', express.static(props.clientDistPath))
+}
+
+app.use(favicon(props.staticPath + '/favicon.ico'))
+app.use(express.static(props.staticPath)) // site.io/kitten.jpg served from staticPath
 
 app.get('*', require('./initial-render'))
 
-const port = process.env.PORT || 3000
-
-app.listen(port, function(error) {
+app.listen(props.port, function(error) {
 	if (error) {
 		console.error(error)
 		return process.exit(3)
 	}
 
-	console.info('Listening on http://localhost:%s', port)
+	console.info('Listening on http://localhost:%s', props.port)
 })
