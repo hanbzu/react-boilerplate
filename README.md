@@ -7,3 +7,12 @@ npm install --save babel@^5.8.23
 
 * Express to be used as a server
 npm install --save express
+
+* React
+npm install --save react react-dom
+
+* Add .babelrc with stage 0 (what for?)
+
+
+* Other tools
+npm install --save rimraf
