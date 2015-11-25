@@ -5,6 +5,17 @@ const path = require('path')
 const express = require('express')
 const favicon = require('serve-favicon')
 
+// Check environment
+const rootPath = path.resolve(__dirname, '..')
+if (!process.env.NODE_PATH || path.resolve(process.env.NODE_PATH) !== rootPath) {
+	console.error('NODE_PATH must be set to "%s"', rootPath)
+	process.exit(1)
+}
+if (!process.env.NODE_ENV) {
+	console.error('NODE_ENV must be set')
+	process.exit(2)
+}
+
 const props = {
   clientDistPath: path.join(__dirname, '..', 'client', 'dist'),
   staticPath: path.join(__dirname, '..', 'client', 'static'),
