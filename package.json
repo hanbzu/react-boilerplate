@@ -1,0 +1,32 @@
+{
+  "name": "mysetup",
+  "version": "1.0.0",
+  "description": "My own boilerplate built from scratch.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf client/dist",
+    "build:webpack": "NODE_PATH=. PORT=3000 NODE_ENV=production webpack --config webpack/config.prod.js",
+    "build": "npm run clean && npm run build:webpack",
+    "start": "NODE_PATH=. PORT=3000 NODE_ENV=development node server/server.js",
+    "production": "NODE_PATH=. PORT=3000 NODE_ENV=production node server/server.js",
+    "lint": "eslint src"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": "Hibai Unzueta <hibai.unzueta@gmail.com> (http://www.hibaiunzueta.com/)",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^5.8.34",
+    "babel-eslint": "^4.1.3",
+    "babel-loader": "^5.4.0",
+    "babel-plugin-react-transform": "^1.1.1",
+    "webpack": "^1.12.9",
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.5.0"
+  },
+  "dependencies": {
+    "babel": "^5.8.34",
+    "express": "^4.13.3"
+  }
+}
