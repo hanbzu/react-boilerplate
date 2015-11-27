@@ -6,14 +6,15 @@ export default (req, res) => {
 		<html>
 			<head>
 				<title>${title}</title>
-            </head>
-        <body>
-			<div id="root"></div>
-			<script>
-				window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
-			</script>
-			<script src="/static/bundle.js"></script>
-		</body>
+        <link href='/style.css' rel='stylesheet' type='text/css'>
+      </head>
+      <body>
+  			<div id="root"></div>
+  			<script>
+  				window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
+  			</script>
+  			<script src="/static/bundle.js"></script>
+		  </body>
 		</html>
   `)
 }

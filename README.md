@@ -1,9 +1,17 @@
-* Install Webpack
-npm install --save-dev webpack@^1.12.2 webpack-dev-middleware@^1.2.0 webpack-hot-middleware@^2.4.1
+Based on:
+https://github.com/inxilpro/react-redux-isomorphic-hot-boilerplate
 
-* Install Babel (avoiding Babel 6 until compatible with react-transform).
-npm install --save-dev babel-core@^5.4.7 babel-eslint@^4.1.3 babel-loader@^5.1.2 babel-plugin-react-transform@^1.1.1
-npm install --save babel@^5.8.23
+
+* Install Webpack (not as dev-dep, because it's needed to compile in server)
+
+npm install --save webpack@^1.12.2
+
+* Install Webpack middleware
+npm install --save-dev webpack-dev-middleware@^1.2.0 webpack-hot-middleware@^2.4.1
+
+* Install Babel (avoiding Babel 6 until compatible with react-transform). Babel and babel-loader are needed on the server so don't --save-dev but simply --save.
+npm install --save-dev babel-core@^5.4.7 babel-eslint@^4.1.3 babel-plugin-react-transform@^1.1.1
+npm install --save babel@^5.8.23 babel-loader@^5.1.2
 
 * Express to be used as a server, plus favicon middleware
 npm install --save express serve-favicon

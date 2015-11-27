@@ -21,7 +21,7 @@ var webpack = require('webpack')
 module.exports = {
   devtool: 'source-map',
   entry: [
-    path.join(__dirname, '..', 'client', 'src', 'app')
+    path.join(__dirname, '..', 'client', 'src')
   ],
   output: {
 		path: path.join(__dirname, '..', 'client', 'dist'),
