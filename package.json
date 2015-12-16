@@ -1,8 +1,7 @@
 {
-  "name": "mysetup",
+  "name": "react-boilerplate",
   "version": "1.0.0",
-  "description": "My own boilerplate built from scratch.",
-  "main": "index.js",
+  "description": "Boilerplate for React",
   "scripts": {
     "clean": "rimraf client/dist",
     "build:webpack": "NODE_PATH=. PORT=3000 NODE_ENV=production webpack --config webpack/config.prod.js",
