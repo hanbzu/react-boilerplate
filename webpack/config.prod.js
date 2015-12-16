@@ -47,11 +47,15 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				test: /\.js$/,
-				loaders: ['babel'],
-				exclude: /node_modules/,
-				include: path.join(__dirname, '..')
-			}
+        test: /\.js$/,
+        loaders: ['babel'],
+        exclude: /node_modules/,
+        include: path.join(__dirname, '..')
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules'
+      }
 		]
 	}
 }

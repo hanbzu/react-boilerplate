@@ -29,6 +29,8 @@ npm install --save-dev react-transform-catch-errors react-transform-hmr redbox-r
 * Other tools
 npm install --save rimraf
 
+* CSS modules. CSS loader will be used so that modules can be nicely packed.
+npm install css-loader --save
 
 Inspiration:
 * https://github.com/inxilpro/react-redux-isomorphic-hot-boilerplate
