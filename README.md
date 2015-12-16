@@ -1,6 +1,8 @@
-Based on:
-https://github.com/inxilpro/react-redux-isomorphic-hot-boilerplate
+BEWARE: This is work in progress. My intention is to use it as a reference
+for some time and if I have time improve this README file to ease understanting.
 
+
+## Steps
 
 * Install Webpack (not as dev-dep, because it's needed to compile in server)
 
@@ -19,10 +21,14 @@ npm install --save express serve-favicon
 * React
 npm install --save react react-dom
 
-* Add .babelrc with stage 0 (what for?)
+* Add .babelrc with stage 0 (can this be improved)
 
 * Install development mode tools. This will allow to define a specific section in server/server.js and load the Webpack dev conf along with the hot reloading and error reporting modules.
 npm install --save-dev react-transform-catch-errors react-transform-hmr redbox-react
 
 * Other tools
 npm install --save rimraf
+
+
+Inspiration:
+* https://github.com/inxilpro/react-redux-isomorphic-hot-boilerplate
